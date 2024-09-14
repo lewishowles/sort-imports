@@ -1,0 +1,12 @@
+# Misc files
+.gitignore
+
+# Build files
+jsconfig.json
+
+# Package files
+bun.lockb
+
+# Lint configuration
+eslint.config.cjs
+config/
