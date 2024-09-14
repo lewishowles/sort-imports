@@ -8,20 +8,19 @@ module.exports = function() {
 	}
 
 	const document = editor.document;
-	const cursorPosition = editor.selection.active;
-	const line = document.lineAt(cursorPosition.line);
-
-	// Determine whether the cursor is in an import statement.
-	if (!isImportStatement(line.text)) {
-		vscode.window.showInformationMessage("Please place the cursor in an import statement.");
-
-		return;
-	}
-
-	const sortedImport = sortImport(line.text);
+	const selections = editor.selections;
 
 	editor.edit(editBuilder => {
-		editBuilder.replace(line.range, sortedImport);
+		selections.forEach(selection => {
+			const line = document.lineAt(selection.active.line);
+
+			// Determine whether the cursor is in an import statement.
+			if (isImportStatement(line.text)) {
+				const sortedImport = sortImport(line.text);
+
+				editBuilder.replace(line.range, sortedImport);
+			}
+		});
 	});
 };
 
