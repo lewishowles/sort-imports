@@ -1,0 +1,35 @@
+{
+	"name": "sort-imports",
+	"displayName": "Sort imports",
+	"publisher": "LewisHowles",
+	"description": "Re-arrange destructured imports alphabetically, making them easier to scan",
+	"version": "0.0.1",
+	"main": "./extension.js",
+	"icon": "assets/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lewishowles/sort-imports.git"
+	},
+	"activationEvents": [],
+	"contributes": {
+		"commands": [{
+			"command": "sort-imports.sortImports",
+			"title": "Sort imports alphabetically"
+		}]
+	},
+	"engines": {
+		"vscode": "^1.93.0"
+	},
+	"scripts": {
+		"lint": "eslint ."
+	},
+	"devDependencies": {
+		"@stylistic/eslint-plugin": "^2.8.0",
+		"@types/mocha": "^10.0.7",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.93.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.9.1"
+	}
+}
